@@ -1,7 +1,7 @@
 # Projet Final DevOps – Site Vitrine Personnel Conteneurisé
 
 ## Étudiant
-MAES Baptiste
+MAES Baptiste (DEV)
 
 ## Sujet
 Déploiement d’une application web conteneurisée avec Docker et Docker Compose
@@ -43,3 +43,40 @@ L’architecture de l’application est composée de :
 ---
 
 ## Schéma simplifié
+
+Navigateur Web
+↓
+Frontend (HTML / CSS / JS)
+↓
+Backend API
+↓
+Base de données
+
+
+---
+
+## Technologies utilisées
+- Docker
+- Docker Compose
+- HTML / CSS / JavaScript
+- Node.js ou Python
+- MySQL ou PostgreSQL
+
+---
+
+## Prérequis
+- Docker installé
+- Docker Compose installé
+
+---
+
+## Lancement du projet
+
+### Démarrer l’application
+```bash
+docker-compose up -d
+
+
+
+
+
