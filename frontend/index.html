@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Site vitrine – MAES Baptiste</title>
+</head>
+
+<body>
+    <h1>Site vitrine personnel</h1>
+    <p>Projet Docker / DevOps</p>
+
+    <button onclick="callApi()">Tester l'API backend</button>
+    <p id="result"></p>
+
+<script>
+    function callApi() {
+        fetch("http://localhost:3000")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "Erreur API";
+            });
+    }
+</script>
+
+</body>
+
+</html>
