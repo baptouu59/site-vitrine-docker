@@ -6,11 +6,11 @@ const app = express();
 app.use(cors());
 
 const pool = new Pool({
-  host: "db",
-  user: "admin",
-  password: "admin",
-  database: "vitrine",
-  port: 5432,
+  host: process.env.POSTGRES_HOST,
+  user: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
+  port: process.env.POSTGRES_PORT,
 });
 
 app.get("/", (req, res) => {
@@ -22,6 +22,7 @@ app.get("/db", async (req, res) => {
     const result = await pool.query("SELECT * FROM messages");
     res.json(result.rows);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Erreur base de données" });
   }
 });

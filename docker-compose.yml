@@ -19,17 +19,15 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    expose:
-      - "3000"
+    env_file:
+      - .env
     depends_on:
       - db
 
   db:
     image: postgres:15
     container_name: db
-    environment:
-      POSTGRES_DB: vitrine
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+    env_file:
+      - .env
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
