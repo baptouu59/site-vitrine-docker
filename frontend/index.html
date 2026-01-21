@@ -15,7 +15,7 @@
 
 <script>
     function callApi() {
-        fetch("http://localhost:3000")
+        fetch("/api/db")
             .then(response => response.json())
             .then(data => {
                 document.getElementById("result").innerText = data.message;
