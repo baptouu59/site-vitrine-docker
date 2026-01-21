@@ -1,0 +1,19 @@
+@startuml
+title Architecture du site vitrine Dockerisé
+
+node "Machine hôte" {
+  node "Docker Engine" {
+
+    node "Frontend\n(Nginx)" {
+      component "Site HTML"
+    }
+
+    node "Backend\n(Node.js / Express)" {
+      component "API REST"
+    }
+
+    "Site HTML" --> "API REST" : HTTP (fetch)
+  }
+}
+
+@enduml
