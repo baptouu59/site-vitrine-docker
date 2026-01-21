@@ -1,18 +1,31 @@
 const express = require("express");
 const cors = require("cors");
+const { Pool } = require("pg");
 
 const app = express();
-const port = 3000;
-
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "API backend opérationnelle",
-    author: "MAES Baptiste"
-  });
+const pool = new Pool({
+  host: "db",
+  user: "admin",
+  password: "admin",
+  database: "vitrine",
+  port: 5432,
 });
 
-app.listen(port, () => {
-  console.log(`Backend lancé sur le port ${port}`);
+app.get("/", (req, res) => {
+  res.json({ message: "Backend opérationnel" });
+});
+
+app.get("/db", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM messages");
+    res.json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur base de données" });
+  }
+});
+
+app.listen(3000, () => {
+  console.log("Backend lancé sur le port 3000");
 });
