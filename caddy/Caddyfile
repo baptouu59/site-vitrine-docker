@@ -1,10 +1,24 @@
-:80 {
+@startuml
+actor User
 
-    handle_path /api/* {
-        reverse_proxy backend:3000
-    }
-
-    handle {
-        reverse_proxy frontend:80
-    }
+node "Navigateur" {
+  User
 }
+
+node "Caddy (Reverse Proxy)" {
+}
+
+node "Frontend (Nginx)" {
+}
+
+node "Backend (Node.js / Express)" {
+}
+
+database "PostgreSQL" {
+}
+
+User --> "Caddy (Reverse Proxy)"
+"Caddy (Reverse Proxy)" --> "Frontend (Nginx)"
+"Caddy (Reverse Proxy)" --> "Backend (Node.js / Express)"
+"Backend (Node.js / Express)" --> "PostgreSQL"
+@enduml

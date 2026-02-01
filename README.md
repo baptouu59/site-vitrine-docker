@@ -98,6 +98,13 @@ et communiquent grâce au réseau interne créé par Docker Compose.
 La politique CORS est gérée côté backend afin d’autoriser
 les requêtes provenant du frontend.
 
+## Sécurisation HTTPS
+
+Le reverse proxy Caddy permet la mise en place automatique du HTTPS lors du déploiement
+sur un serveur distant avec un nom de domaine valide.
+Cette fonctionnalité facilite la sécurisation des échanges sans configuration manuelle complexe.
+
+
 ## Utilisation de l'IA
 
 Dans le cadre de ce projet, des outils d’intelligence artificielle
